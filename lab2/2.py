@@ -26,6 +26,9 @@ def getGeaometricAverage(numbers:list)->float:
     return p ** (1/len(numbers))
  
 def some_function(object):
+
+    print(object,' : ',end='')
+
     match object:
         case int():
             print("число простое" if isDigitPrime(object) else "число составное") 
@@ -46,8 +49,8 @@ if __name__ == '__main__':
 
     #Уберите комментарий с нужного типа
     some_var = {1:'ods',-1:'asd',10:'oo'}
-    # some_var = 10
-    # some_var = 'asdad ieieiedd'
-    # some_var = {1,2,3,4}
-    # some_var = [1,2,3,4]
+    #some_var = 10
+    #some_var = 'asdad ieieiedd'
+    #some_var = {1,2,3,4}
+    #some_var = [1,2,3,4]
     some_function(some_var) 
