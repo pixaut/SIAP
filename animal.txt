@@ -1,2 +1,0 @@
-Animal class : <class '__main__.Fish'>, cost : 56, type : p[p[
-Animal class : <class '__main__.Bird'>, cost : 20, type : fgh

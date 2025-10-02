@@ -53,4 +53,4 @@ if __name__ == '__main__':
 
     shop.TopCostInfo()
 
-    shop.write_to_file('animal.txt')
+    shop.write_to_file('lab4/animal.txt')
