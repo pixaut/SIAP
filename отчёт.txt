@@ -1,0 +1,2 @@
+Animal class : <class '__main__.Bird'>, cost : <bound method Animal.get_cost of <__main__.Bird object at 0x000001E75419BB80>>, type : ops
+Animal class : <class '__main__.Bird'>, cost : <bound method Animal.get_cost of <__main__.Bird object at 0x000001E75419BB20>>, type : ppp
