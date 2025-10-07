@@ -1,15 +1,15 @@
 class Animal:
-    # Атрибут класса (общий для всех экземпляров)
+   
     kingdom = "Животные"
 
     def __init__(self, name, age):
-        # Атрибуты экземпляра
+        
         self.name = name
         self.age = age
 
     # Метод экземпляра (обычный)
     def speak(self):
-        return f"{self.name} издает звук!"
+        f"{self.name} издает звук!"
 
     # Статический метод (не зависит ни от класса, ни от экземпляра)
     @staticmethod
