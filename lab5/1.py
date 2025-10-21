@@ -1,58 +1,74 @@
 import numpy as np
 
-# 1.1 Создать вектор (одномерный массив) размера 10, заполненный нулями
-a1 = np.zeros(10)
-print("1.1:", a1)
+zero_vec = np.zeros(10)
+print(zero_vec)
 
-# 1.2 Создать вектор размера 10, заполненный числом 2.5
-a2 = np.full(10, 2.5)
-print("1.2:", a2)
+filled_vec = np.full(10,2.5)
+print(filled_vec)
 
-# 1.3 Создать вектор размера 10, заполненный нулями, но пятый элемент равен 1
-a3 = np.zeros(10)
-a3[4] = 1   # индексация с нуля
-print("1.3:", a3)
+zero_vec[4] =1
+print(zero_vec)
 
-# 1.4 Создать вектор со значениями от 10 до 49
-a4 = np.arange(10, 50)
-print("1.4:", a4)
+arange_vec = np.arange(10,50)
+print(arange_vec)
 
-# 1.5 Найти индексы ненулевых элементов в [1,2,0,0,4,0]
-a5 = np.array([1, 2, 0, 0, 4, 0])
-nz = np.nonzero(a5)
-print("1.5:", nz)
+quest_vec = np.array([1,2,0,0,4,0])
+print(*quest_vec.nonzero())
 
-# 1.6 Создать 3x3 единичную матрицу
-a6 = np.eye(3)
-print("1.6:\n", a6)
 
-# 1.7 Создать массив 10x10 со случайными значениями, найти минимум и максимум
-a7 = np.random.random((10, 10))
-print("1.7: min =", a7.min(), ", max =", a7.max())
+eye_matrix = np.eye(3,3)
+print(eye_matrix)
 
-# 1.8 Создать случайный вектор размера 30 и найти среднее значение всех элементов
-a8 = np.random.random(30)
-print("1.8: mean =", a8.mean())
 
-# 1.9 Создать 8x8 матрицу и заполнить её в шахматном порядке
-a9 = np.zeros((8, 8))
-a9[1::2, ::2] = 1
-a9[::2, 1::2] = 1
-print("1.9:\n", a9)
+random_matrix = np.random.rand(10,10)
+print(random_matrix.max(), ' ',random_matrix.min())
 
-# 1.10 Перемножить матрицы 5x3 и 3x2
-a10_1 = np.random.random((5, 3))
-a10_2 = np.random.random((3, 2))
-a10 = np.dot(a10_1, a10_2)
-print("1.10:\n", a10)
+random_vec = np.random.rand(1,30)
+print(random_vec.mean())
 
-# 1.11 Проверить, одинаковы ли 2 numpy массива
+
+chess = np.zeros((8, 8), dtype=int)
+chess[1::2, ::2] = 1
+chess[::2, 1::2] = 1
+print("Шахматная матрица 8x8:")
+print(chess, "\n")
+
+
+A = np.random.randint(1, 10, (5, 3))
+B = np.random.randint(1, 10, (3, 2))
+C = np.dot(A, B)
+print("Матрица A (5x3):")
+print(A)
+print("Матрица B (3x2):")
+print(B)
+print("Результат перемножения (5x2):")
+print(C, "\n")
+
+
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([1, 2, 3])
-print("1.11:", np.array_equal(arr1, arr2))
+arr3 = np.array([1, 3, 2])
+print("arr1 и arr2 одинаковы?", np.array_equal(arr1, arr2))
+print("arr1 и arr3 одинаковы?", np.array_equal(arr1, arr3), "\n")
 
-# 1.12 Заменить максимальный элемент на ноль
-a12 = np.random.randint(0, 100, 10)
-print("1.12 before:", a12)
-a12[a12.argmax()] = 0
-print("1.12 after:", a12)
+
+arr = np.random.randint(0, 100, (4, 4))
+print("Исходный массив:")
+print(arr)
+arr[arr == np.max(arr)] = 0
+print("После замены максимального элемента на 0:")
+print(arr, "\n")
+
+
+arr = np.random.randint(0, 10, 20)
+values, counts = np.unique(arr, return_counts=True)
+most_common = values[np.argmax(counts)]
+print("Массив:", arr)
+print("Наиболее частое значение:", most_common, "\n")
+
+
+arr = np.random.randint(0, 100, 15)
+n = 3
+largest = np.sort(arr)[-n:]
+print("Массив:", arr)
+print(f"{n} наибольших значения:", largest)

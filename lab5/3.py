@@ -2,33 +2,45 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Диапазон значений x и y
-x = np.linspace(-2, 2, 50)
-y = np.linspace(-2, 2, 50)
+
+x = np.linspace(-2, 2, 40)
+y = np.linspace(-2, 2, 40)
 X, Y = np.meshgrid(x, y)
 
-# Функции
-Z1 = X**0.25 + 0.25
+
+Z1 = X**0.25 + Y**0.25
+
+
 Z2 = X**2 - Y**2
+
+
 Z3 = 2*X + 3*Y
-Z4 = 2 + 2*X + 2*Y - X**2 - Y**2
 
-# Список функций и названий
-functions = [(Z1, "z = x^0.25 + 0.25"),
-             (Z2, "z = x^2 - y^2"),
-             (Z3, "z = 2x + 3y"),
-             (Z4, "z = 2 + 2x + 2y - x^2 - y^2")]
 
-# Построение графиков
-fig = plt.figure(figsize=(12, 8))
+Z4 = X**2 - Y**2
 
-for i, (Z, title) in enumerate(functions, 1):
-    ax = fig.add_subplot(2, 2, i, projection='3d')
-    ax.plot_surface(X, Y, Z, cmap='viridis')
-    ax.set_title(title)
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
-    ax.set_zlabel("z")
+
+Z5 = 2 + 2*X + 2*Y - X**2 - Y**2
+
+
+fig = plt.figure(figsize=(6, 5))
+
+
+ax1 = fig.add_subplot(221, projection='3d')
+ax1.plot_surface(X, Y, Z1, cmap='viridis')
+ax1.set_title("z = x^0.25 + y^0.25")
+
+ax2 = fig.add_subplot(222, projection='3d')
+ax2.plot_surface(X, Y, Z2, cmap='plasma')
+ax2.set_title("z = x² - y²")
+
+ax3 = fig.add_subplot(223, projection='3d')
+ax3.plot_surface(X, Y, Z3, cmap='coolwarm')
+ax3.set_title("z = 2x + 3y")
+
+ax4 = fig.add_subplot(224, projection='3d')
+ax4.plot_surface(X, Y, Z5, cmap='magma')
+ax4.set_title("z = 2 + 2x + 2y - x² - y²")
 
 plt.tight_layout()
 plt.show()
